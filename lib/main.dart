@@ -1,6 +1,6 @@
 import 'package:cvfinal/utils/app_theme.dart';
 import 'package:flutter/material.dart';
-//
+import 'view/main_view.dart';
 // Created by CodeWithFlexZ
 // Tutorials on my YouTube
 //

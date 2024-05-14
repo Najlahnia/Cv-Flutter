@@ -20,12 +20,8 @@ class FirstView extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return Column(
       children: [
-        // Empty Space
-        SizedBox(
-          height: size.height * 0.1,
-        ),
+        SizedBox(height: size.height * 0.05), // Réduit l'espace en haut
 
-        /// Developer Avatar
         Container(
           padding: EdgeInsets.all(size.height * .01),
           decoration: BoxDecoration(
@@ -33,7 +29,7 @@ class FirstView extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: CircleAvatar(
-            radius: size.height * .15,
+            radius: size.height * .1, // Réduit la taille de l'avatar
             backgroundColor: AppColors.appPrimary,
             backgroundImage: const NetworkImage(
               AppStrings.imageUrl,
@@ -41,28 +37,20 @@ class FirstView extends StatelessWidget {
           ),
         ),
 
-        // Empty Space
-        SizedBox(
-          height: size.height * 0.01,
-        ),
+        SizedBox(height: size.height * 0.02), // Réduit l'espace après l'avatar
 
-        /// Developer Full Name
         Text(
           DevData.devData.name,
           style: theme.textTheme.displayLarge,
         ),
 
-        // Empty Space
-        SizedBox(
-          height: size.height * 0.02,
-        ),
+        SizedBox(height: size.height * 0.02), // Réduit l'espace après le nom
 
-        /// Developer Skills
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           alignment: WrapAlignment.center,
-          spacing: size.width * .05,
-          runSpacing: size.width * .03,
+          spacing: size.width * .03, // Réduit l'espacement horizontal entre les compétences
+          runSpacing: size.width * .02, // Réduit l'espacement vertical entre les compétences
           children: List.generate(
               DevData.devData.skillsAndProgress.length,
               (index) => SkillBox(
@@ -70,12 +58,8 @@ class FirstView extends StatelessWidget {
                   )),
         ),
 
-        // Empty Space
-        SizedBox(
-          height: size.height * 0.03,
-        ),
+        SizedBox(height: size.height * 0.02), // Réduit l'espace avant les barres de progression
 
-        /// Skills Progress
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: List.generate(
@@ -86,28 +70,28 @@ class FirstView extends StatelessWidget {
             ),
           ),
         ),
+
         IconButton(
-          icon: Icon(Icons.home), // Utilisez une icône appropriée
+          icon: Icon(Icons.home),
           onPressed: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => homePage()));
           },
         ),
-        // Empty Space
+
+        SizedBox(height: size.height * 0.02), // Réduit l'espace après l'icône Home
+
         Expanded(child: Container()),
 
-        /// Next Page
         IconButton(
           color: theme.canvasColor,
           onPressed: nextPage,
           icon: const Icon(Icons.arrow_downward_outlined),
         ),
 
-        /// Empty Space
-        SizedBox(
-          height: size.height * 0.05,
-        ),
+        SizedBox(height: size.height * 0.02), // Réduit l'espace avant le bouton "Next Page"
       ],
     );
   }
+
 }
